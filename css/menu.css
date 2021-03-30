@@ -1,0 +1,266 @@
+/* Wrapper */
+
+.wrapper {
+  background: rgb(242, 246, 252);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "main"
+}
+
+/* Sidebar */
+
+.sidebar {
+  grid-area: "sidebar";
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: -255px;
+  top: 0;  
+  z-index: 10000;
+  /*background: #333;*/
+  background: #343957;
+  color: #fff;
+  transition: all 0.3s;
+  box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.5);
+  text-align: left;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.content {
+  width: 100%;
+  min-height: 100vh;
+  grid-area: main;
+  transition: all 0.3s;
+}
+
+/* Dark overlay */
+
+.overlay {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(51, 51, 51, 0.7);
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Open Menu */
+
+.open-menu {
+  position: fixed;
+  top: 20px;
+  left: 10px;
+  z-index: 100;
+  box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.2);
+}
+
+.open-menu.btn-customized,
+.open-menu.btn-customized:hover,
+.open-menu.btn-customized:active,
+.open-menu.btn-customized:focus,
+.open-menu.btn-customized:active:focus,
+.open-menu.btn-customized.active:focus,
+.open-menu.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active,
+.open-menu.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.2);
+}
+
+.open-menu i {
+  margin-right: 10px;
+}
+
+/* Estilos para todos los botones customizados */
+
+a.btn-customized {
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 0.75rem 1.5rem;
+  background: #f35b3f;
+  border: 0;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 300;
+  color: #fff;
+  box-shadow: none;
+}
+
+a.btn-customized:hover,
+a.btn-customized:active,
+a.btn-customized:focus,
+a.btn-customized:active:focus,
+a.btn-customized.active:focus,
+a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active,
+a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
+  outline: 0;
+  background: #cd533d;
+  background: rgba(243, 91, 63, 0.7);
+  border: 0;
+  color: #fff;
+  box-shadow: none;
+}
+
+/* Dismiss - Botón para cerrar el sidenav */
+
+.dismiss {
+  display: block;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: all 0.3s;
+  background: rgb(107, 81, 223);
+  border-radius: 4px;
+  text-align: center;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.dismiss:hover,
+.dismiss:focus {
+  background: #6b51dfb7;
+  color: #fff;
+}
+
+.sidebar .logo {
+  padding: 40px 20px;
+  border-bottom: 1px solid #444;
+  transition: all 0.3s;
+}
+
+.sidebar .logo a {
+  display: inline-block;
+  width: 172px;
+  height: 34px;
+  /*background: url(../img/logo.png) left top no-repeat;*/
+  border: 0;
+  text-indent: -999999px;
+}
+
+.sidebar ul.menu-elements {
+  padding: 10px 0;
+  border-bottom: 1px solid #444;
+  transition: all 0.3s;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 10px 20px;
+  border: 0;
+  color: #fff;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a:focus,
+.sidebar ul li.active > a:hover,
+.sidebar ul li.active > a:focus {
+  outline: 0;
+  background: #7159db;
+  color: #fff;
+}
+
+.sidebar ul li a i {
+  margin-right: 15px;
+}
+
+.sidebar ul li.active > a,
+a[aria-expanded="true"] {
+  background: #343957;
+  color: #fff;
+}
+
+.sidebar ul ul a {
+  background: hsl(231, 25%, 37%);
+  padding-left: 4rem;
+  font-size: 14px;
+}
+
+.submenu li.active > a {
+  background: #35495d;
+}
+
+.sidebar a[data-bs-toggle="collapse"] {
+  position: relative;
+}
+
+.sidebar .dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+.dropdown-toggle.nav-link i {
+  margin-right: 11px;
+}
+
+/*  Cerrar Sesión */
+
+.sidebar .logout-container {
+  padding: 20px;
+  text-align: center;
+}
+
+a.logout {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  /*background: #444;*/
+  border: 0;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 300;
+  color: #fff;
+  box-shadow: none;
+}
+
+a.logout:hover,
+a.logout:active,
+a.logout:focus,
+a.logout:active:focus,
+a.logout.active:focus,
+a.logout.btn.btn-primary:not(:disabled):not(.disabled):active,
+a.logout.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
+  outline: 0;
+  /*background: #555;*/
+  border: 0;
+  color: #fff;
+  box-shadow: none;
+}
+
+a.logout i {
+  margin-right: 5px;
+}
+
+@media only screen and (min-width: 992px) {
+
+
+  .wrapper {
+    grid-template-areas: "sidebar main";
+    grid-template-columns: 255px 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .sidebar {
+    position: static;
+    /*left: 0;*/
+  }
+
+  .dismiss {
+    display: none;
+  }
+
+}
